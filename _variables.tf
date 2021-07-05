@@ -58,3 +58,12 @@ variable "vpn_cidr" {
   description = "VPN CIDR Access for Airflow UI"
 }
 
+variable "custom_domain" {
+  type        = string
+  description = "custom DNS name for MWAA Environment"
+}
+
+variable "aws_route53_id" {
+  type        = string
+  description = "Route53 Hosted Zone ID"
+}
