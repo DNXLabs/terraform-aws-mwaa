@@ -39,7 +39,9 @@
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| mwaa\_role\_arn | n/a |
 
 <!--- END_TF_DOCS --->
 
