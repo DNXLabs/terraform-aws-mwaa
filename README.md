@@ -43,6 +43,7 @@
 |------|-------------|
 | mwaa\_role\_arn | n/a |
 | mwaa\_role\_name | n/a |
+| mwaa\_security\_group | n/a |
 
 <!--- END_TF_DOCS --->
 
