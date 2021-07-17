@@ -14,6 +14,11 @@ data "aws_iam_policy_document" "mwaa_assume_role" {
 
     principals {
       type        = "Service"
+      identifiers = ["glue.amazonaws.com"]
+    }
+
+    principals {
+      type        = "Service"
       identifiers = ["ssm.amazonaws.com"]
     }
     principals {
@@ -93,6 +98,27 @@ data "aws_iam_policy_document" "mwaa_policy" {
       "logs:DescribeLogGroups",
       "cloudwatch:PutMetricData"
     ]
+    resources = [
+      "*"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "glue:UpdateDatabase",
+      "glue:DeleteDatabase",
+      "glue:CreateTable",
+      "glue:CreateDatabase",
+      "glue:UpdateTable",
+      "glue:DeleteTableVersion",
+      "glue:BatchDeleteTableVersion",
+      "glue:BatchDeleteTable",
+      "glue:DeleteTable",
+      "glue:GetTable",
+      "glue:GetDatabase",
+      "glue:GetPartitions"
+      ]
     resources = [
       "*"
     ]
