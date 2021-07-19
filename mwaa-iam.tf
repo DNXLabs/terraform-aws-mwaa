@@ -117,7 +117,8 @@ data "aws_iam_policy_document" "mwaa_policy" {
       "glue:DeleteTable",
       "glue:GetTable",
       "glue:GetDatabase",
-      "glue:GetPartitions"
+      "glue:GetPartitions",
+      "glue:BatchCreatePartition"
     ]
     resources = [
       "*"
