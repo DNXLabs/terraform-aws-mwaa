@@ -11,6 +11,8 @@ resource "aws_mwaa_environment" "mwaa" {
     # DAG timeout and log level
     "core.dagbag_import_timeout" = var.airflow_configuration_options["dag_timeout"]
     "logging.logging_level"      = var.airflow_configuration_options["log_level"]
+    "core.default_task_retries"  = var.airflow_configuration_options["core.default_task_retries"]
+    "celery.worker_autoscale"    = var.airflow_configuration_options["celery.worker_autoscale"]
 
     # Airflow webserver timeout
     "webserver.web_server_master_timeout" = var.airflow_configuration_options["webserver_timeout"]["master"]
