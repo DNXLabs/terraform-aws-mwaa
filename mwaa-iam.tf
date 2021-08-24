@@ -54,21 +54,9 @@ data "aws_iam_policy_document" "mwaa_policy" {
     ]
   }
   statement {
-    effect = "Deny"
-    actions = [
-      "s3:ListAllMyBuckets"
-    ]
-    resources = [
-      "arn:aws:s3:::${aws_s3_bucket.mwaa_content.bucket}",
-      "arn:aws:s3:::${aws_s3_bucket.mwaa_content.bucket}/*"
-    ]
-  }
-  statement {
     effect = "Allow"
     actions = [
-      "s3:GetObject*",
-      "s3:GetBucket*",
-      "s3:List*"
+      "s3:*"
     ]
     resources = [
       "arn:aws:s3:::${aws_s3_bucket.mwaa_content.bucket}",
