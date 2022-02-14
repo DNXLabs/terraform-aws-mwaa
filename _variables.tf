@@ -2,6 +2,10 @@ variable "environment_name" {
   description = "Name of MWAA Environment"
 }
 
+variable "org_name" {
+  description = "Name of the Organisation"
+}
+
 variable "airflow_version" {
   description = "Airflow version of the MWAA environment"
 }
