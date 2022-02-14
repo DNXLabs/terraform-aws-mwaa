@@ -31,6 +31,7 @@
 | logging\_configuration | The Apache Airflow logs you want to send to Amazon CloudWatch Logs. | `any` | n/a | yes |
 | max\_workers | The maximum number of workers that can be automatically scaled up. Value need to be between 1 and 25. Will be 10 by default. | `number` | `10` | no |
 | min\_workers | The minimum number of workers that you want to run in your environment. Will be 1 by default. | `number` | `1` | no |
+| org\_name | Name of the Organisation | `any` | n/a | yes |
 | plugins\_s3\_path | The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. | `string` | `"plugins.zip"` | no |
 | private\_subnet\_ids | The private subnet IDs in which the environment should be created. MWAA requires two subnets. | `list(string)` | n/a | yes |
 | requirements\_s3\_path | The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. | `string` | `"requirements.txt"` | no |
