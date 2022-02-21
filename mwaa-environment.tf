@@ -26,6 +26,10 @@ resource "aws_mwaa_environment" "mwaa" {
     # Airflow webserver timeout
     "webserver.web_server_master_timeout" = var.airflow_configuration_options["webserver_timeout"]["master"]
     "webserver.web_server_worker_timeout" = var.airflow_configuration_options["webserver_timeout"]["worker"]
+
+    # Replace fixed values
+    "secrets.backend"         = var.airflow_configuration_options["secrets.backend"] 
+    "secrets.backend_kwargs"  = var.airflow_configuration_options["secrets.backend_kwargs"] 
   }
 
   logging_configuration {
