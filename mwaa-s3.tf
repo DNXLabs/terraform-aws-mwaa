@@ -10,6 +10,18 @@ resource "aws_s3_bucket" "mwaa_content" {
   }
 }
 
+resource "aws_s3_bucket_acl" "mwaa_content" {
+  bucket =  aws_s3_bucket.mwaa_content.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "mwaa_content" {
+  bucket = aws_s3_bucket.mwaa_content.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "mwaa_public_access_block" {
   bucket = aws_s3_bucket.mwaa_content.id
 
