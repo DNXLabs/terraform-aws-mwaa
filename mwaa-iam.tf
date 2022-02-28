@@ -33,12 +33,12 @@ data "aws_iam_policy_document" "mwaa_assume_role" {
 }
 
 resource "aws_iam_role" "mwaa_role" {
-  name               = "mwaa-executor-${var.environment_name}"
+  name               = "mwaa-executor-${var.environment_name}-${data.aws_region.current.name}"
   assume_role_policy = data.aws_iam_policy_document.mwaa_assume_role.json
 }
 
 resource "aws_iam_role_policy" "mwaa_policy" {
-  name   = "mwaa-executor-policy-${var.environment_name}"
+  name   = "mwaa-executor-policy-${var.environment_name}-${data.aws_region.current.name}"
   role   = aws_iam_role.mwaa_role.id
   policy = data.aws_iam_policy_document.mwaa_policy.json
 }

@@ -2,11 +2,18 @@
 #  - S3 bucket needs to start with prefix "airflow"
 #  - Mandatory to set Block Public Access
 resource "aws_s3_bucket" "mwaa_content" {
-  bucket = "mwaa-${var.environment_name}-${data.aws_region.current.name}"
-  acl    = "private"
+  bucket = "mwaa-${var.org_name}-${var.environment_name}-${data.aws_region.current.name}"
+}
 
-  versioning {
-    enabled = true
+resource "aws_s3_bucket_acl" "mwaa_content" {
+  bucket = aws_s3_bucket.mwaa_content.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "mwaa_content" {
+  bucket = aws_s3_bucket.mwaa_content.id
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 
