@@ -17,15 +17,18 @@ resource "aws_mwaa_environment" "mwaa" {
     "core.dagbag_import_timeout"      = var.airflow_configuration_options["core.dagbag_import_timeout"]
     "core.max_active_runs_per_dag"    = var.airflow_configuration_options["core.max_active_runs_per_dag"]
     "core.parallelism"                = var.airflow_configuration_options["core.parallelism"]
+    "core.killed_task_cleanup_time"   = var.airflow_configuration_options["core.killed_task_cleanup_time"]
+    "core.min_serialized_dag_update_interval"   = var.airflow_configuration_options["core.min_serialized_dag_update_interval"]
+
 
     "celery.worker_autoscale"           = var.airflow_configuration_options["celery.worker_autoscale"]
+    "celery.sync_parallelism"           = var.airflow_configuration_options["celery.sync_parallelism"]
+
     "scheduler.processor_poll_interval" = var.airflow_configuration_options["scheduler.processor_poll_interval"]
-
-    "logging.logging_level" = var.airflow_configuration_options["log_level"]
-
-    # Airflow webserver timeout
-    "webserver.web_server_master_timeout" = var.airflow_configuration_options["webserver_timeout"]["master"]
-    "webserver.web_server_worker_timeout" = var.airflow_configuration_options["webserver_timeout"]["worker"]
+    "scheduler.dag_dir_list_interval" = var.airflow_configuration_options["scheduler.dag_dir_list_interval"]
+    "scheduler.min_file_process_interval" = var.airflow_configuration_options["scheduler.min_file_process_interval"]
+    "scheduler.parsing_processes" = var.airflow_configuration_options["scheduler.parsing_processes"]
+    "scheduler.schedule_after_task_execution" = var.airflow_configuration_options["scheduler.schedule_after_task_execution"]
   }
 
   logging_configuration {
