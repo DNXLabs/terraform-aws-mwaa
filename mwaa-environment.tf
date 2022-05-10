@@ -29,6 +29,12 @@ resource "aws_mwaa_environment" "mwaa" {
     "scheduler.min_file_process_interval" = var.airflow_configuration_options["scheduler.min_file_process_interval"]
     "scheduler.parsing_processes" = var.airflow_configuration_options["scheduler.parsing_processes"]
     "scheduler.schedule_after_task_execution" = var.airflow_configuration_options["scheduler.schedule_after_task_execution"]
+
+    "logging.logging_level" = var.airflow_configuration_options["log_level"]
+
+    # Airflow webserver timeout
+    "webserver.web_server_master_timeout" = var.airflow_configuration_options["webserver_timeout"]["master"]
+    "webserver.web_server_worker_timeout" = var.airflow_configuration_options["webserver_timeout"]["worker"]
   }
 
   logging_configuration {
