@@ -23,8 +23,6 @@
 |------|-------------|------|---------|:--------:|
 | airflow\_configuration\_options | The airflow\_configuration\_options parameter specifies airflow override options. | `any` | n/a | yes |
 | airflow\_version | Airflow version of the MWAA environment | `any` | n/a | yes |
-| aws\_route53\_id | Route53 Hosted Zone ID | `string` | n/a | yes |
-| custom\_domain | custom DNS name for MWAA Environment | `string` | n/a | yes |
 | dag\_s3\_path | The relative path to the DAG folder on your Amazon S3 storage bucket. | `string` | `"dags"` | no |
 | environment\_class | Environment class for the cluster. Possible options are mw1.small, mw1.medium, mw1.large. | `any` | n/a | yes |
 | environment\_name | Name of MWAA Environment | `any` | n/a | yes |
